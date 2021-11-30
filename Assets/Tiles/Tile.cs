@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] TowerMenu towerMenu;
+    TowerMenu towerMenu;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        towerMenu = FindObjectOfType<TowerMenu>();
     }
 
     // Update is called once per frame

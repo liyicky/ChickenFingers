@@ -23,6 +23,24 @@ public class ObjectPool : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
+    public GameObject[] Pool()
+    {
+        return pool;
+    }
+
+    public List<GameObject> ActivePool()
+    {
+        List<GameObject> activePool = new List<GameObject>();
+        foreach (GameObject enemy in pool)
+        {
+            if (enemy.activeInHierarchy)
+            {
+                activePool.Add(enemy);
+            }
+        }
+        return activePool;
+    }
+
     void OnDrawGizmosSelected()
     {
         rend = spawner.GetComponent<Renderer>();
