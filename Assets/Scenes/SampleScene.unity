@@ -2649,8 +2649,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5783912231176843082, guid: 2bce4a8e408254d15b46dff4c3c58d18, type: 3}
+  bullet: {fileID: 4766949743285344539, guid: bf7ee790b6bb3410cac139d15b58774b, type: 3}
   spawner: {fileID: 553681351522004578}
-  poolSize: 20
+  enemyPoolSize: 10
+  bulletPoolSize: 10
   spawnTime: 0.5
 --- !u!1001 &954608695
 PrefabInstance:
@@ -4713,6 +4715,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1588119574544657965, guid: 9d2a8cef2e32a4e96a9047f571200855, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588119574544657965, guid: 9d2a8cef2e32a4e96a9047f571200855, type: 3}
+      propertyPath: fireThrust
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 1657941900298212390, guid: 9d2a8cef2e32a4e96a9047f571200855, type: 3}
       propertyPath: m_Name
       value: Tower (2)
@@ -5077,29 +5087,14 @@ GameObject:
   - component: {fileID: 1906055298}
   - component: {fileID: 1906055296}
   - component: {fileID: 1906055295}
-  - component: {fileID: 1906055294}
   - component: {fileID: 1906055297}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: BackWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1906055294
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906055293}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1906055295
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5536,8 +5531,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050164452}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.03, y: -5.54, z: 0}
-  m_LocalScale: {x: 1, y: 15.500004, z: 18.984594}
+  m_LocalPosition: {x: -0.029999, y: -5.54, z: 0}
+  m_LocalScale: {x: 1, y: 151.72372, z: 155.5981}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

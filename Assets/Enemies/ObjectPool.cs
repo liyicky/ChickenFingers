@@ -5,10 +5,13 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] Enemy enemy;
+    [SerializeField] Bullet bullet;
     [SerializeField] GameObject spawner;
     Renderer rend;
-    GameObject[] pool;
-    [SerializeField] int poolSize = 10;
+    GameObject[] enemyPool;
+    GameObject[] bulletPool;
+    [SerializeField] int enemyPoolSize = 10;
+    [SerializeField] int bulletPoolSize = 10;
 
     [SerializeField] float spawnTime = 0.5f;
     // Start is called before the first frame update
@@ -23,22 +26,35 @@ public class ObjectPool : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    public GameObject[] Pool()
+    public GameObject[] EnemyPool()
     {
-        return pool;
+        return enemyPool;
     }
 
-    public List<GameObject> ActivePool()
+    public List<GameObject> ActiveEnemyPool()
     {
-        List<GameObject> activePool = new List<GameObject>();
-        foreach (GameObject enemy in pool)
+        List<GameObject> activeEnemyPool = new List<GameObject>();
+        foreach (GameObject enemy in enemyPool)
         {
             if (enemy.activeInHierarchy)
             {
-                activePool.Add(enemy);
+                activeEnemyPool.Add(enemy);
             }
         }
-        return activePool;
+        return activeEnemyPool;
+    }
+
+    public GameObject ActiveBullet()
+    {
+        foreach (GameObject bullet in bulletPool)
+        {
+            if (!bullet.activeInHierarchy)
+            {
+                bullet.SetActive(true);
+                return bullet;
+            }
+        }
+        return null;
     }
 
     void OnDrawGizmosSelected()
@@ -57,19 +73,20 @@ public class ObjectPool : MonoBehaviour
 
     void PopulatePool()
     {
-        pool = new GameObject[poolSize];
-
-        for (int i = 0; i < poolSize; i++)
-        {
-            pool[i] = Instantiate(enemy.gameObject, transform.position, Quaternion.identity);
-            pool[i].SetActive(false);
-        }
+        enemyPool = new GameObject[enemyPoolSize];
+        FillPool(enemyPool, enemyPoolSize, enemy.gameObject);
+        
+        bulletPool = new GameObject[bulletPoolSize];
+        FillPool(bulletPool, bulletPoolSize, bullet.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()   
+    void FillPool(GameObject[] pool, float poolSize, GameObject gameObject)
     {
-        
+        for (int i = 0; i < poolSize; i++)
+        {
+            pool[i] = Instantiate(gameObject, transform.position, Quaternion.identity, transform);
+            pool[i].SetActive(false);
+        }
     }
 
     Vector3 GetRandomXPos()
@@ -82,7 +99,7 @@ public class ObjectPool : MonoBehaviour
 
     void EnableObjectInPool()
     {
-        foreach (GameObject enemy in pool)
+        foreach (GameObject enemy in enemyPool)
         {
             if (!enemy.activeInHierarchy)
             {
@@ -99,7 +116,6 @@ public class ObjectPool : MonoBehaviour
         while (true)
         {
             EnableObjectInPool();
-                
             yield return new WaitForSeconds(spawnTime);
             
         }
