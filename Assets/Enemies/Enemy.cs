@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         
     }
 
@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             
             this.gameObject.SetActive(false);
+            
         }
     }
 }
+ 
