@@ -8,6 +8,9 @@ public class Tower : MonoBehaviour
 [SerializeField] GameObject projectile;
 [SerializeField] float fireRate = 0.3f;
 [SerializeField] float fireThrust = 20f;
+
+private Tile tile;
+public Tile Tile { get {return tile;} set {tile = value;} }
 BulletSpawner bulletSpawner;
 
     ObjectPool objectPool;

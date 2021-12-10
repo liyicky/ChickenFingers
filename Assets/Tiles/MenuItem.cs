@@ -12,12 +12,6 @@ public class MenuItem : MonoBehaviour
         towerMenu = GetComponentInParent<TowerMenu>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnMouseOver()
     {
         if (Input.GetMouseButtonUp(0))

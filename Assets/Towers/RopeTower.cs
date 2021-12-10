@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class RopeTower : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField] RopeManager ropeManager;
+
+    void Awake()
+    {
+        ropeManager = FindObjectOfType<RopeManager>();
+    }
+    
+    
+    private Tile tile;
+    public Tile Tile { get {return GetComponent<Tower>().Tile;} }
+    
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        ropeManager.InitiateRope(this);
     }
 }

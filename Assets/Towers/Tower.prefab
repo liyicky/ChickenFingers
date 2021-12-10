@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 8822254974594833610}
   projectile: {fileID: 7277391950729784271, guid: bf7ee790b6bb3410cac139d15b58774b, type: 3}
+  fireRate: 0.99
+  fireThrust: 20
 --- !u!1 &1904842021649579187
 GameObject:
   m_ObjectHideFlags: 0
