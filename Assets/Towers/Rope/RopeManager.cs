@@ -14,21 +14,17 @@ public class RopeManager : MonoBehaviour
     {   
         if (ropeTower.Tile.isLeft())
         {
-            Debug.Log("Setting left tower");
             leftRopeTowers.Add(ropeTower); 
             leftSet = true;
         }
 
         if (ropeTower.Tile.isRight())
         {
-            Debug.Log("Setting right tower");
             rightRopeTowers.Add(ropeTower);
             rightSet = true;
         }
-        Debug.Log(leftSet + " " + rightSet);
         if (leftSet && rightSet)
         {
-            Debug.Log("LEFT AND RIGHT SET");
             CheckForConnection();
         }
     }

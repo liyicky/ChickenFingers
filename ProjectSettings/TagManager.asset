@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Left Tile
   - Right Tile
+  - Rope
   layers:
   - Default
   - TransparentFX

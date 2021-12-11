@@ -45,10 +45,16 @@ public class RopeMaker : MonoBehaviour
             if (i == 0)
             {
                 Destroy(tmp.GetComponent<CharacterJoint>());
+                tmp.GetComponent<Rigidbody>().isKinematic = true;
             }
             else
             {
                 tmp.GetComponent<CharacterJoint>().connectedBody = parentObject.transform.Find((parentObject.transform.childCount - 1).ToString()).GetComponent<Rigidbody>();
+            }
+
+            if (i == count)
+            {
+                tmp.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
     }

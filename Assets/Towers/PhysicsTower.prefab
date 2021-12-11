@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3782020480903509050}
   - component: {fileID: 1588119574544657965}
+  - component: {fileID: -8475326056866317028}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: PhysicsTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,9 +47,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d23624d062e423f9c7a78ce9f4acdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 8822254974594833610}
+--- !u!114 &-8475326056866317028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657941900298212390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eca7f4af746446008239ebda07c46de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
   projectile: {fileID: 7277391950729784271, guid: bf7ee790b6bb3410cac139d15b58774b, type: 3}
-  fireRate: 0.99
+  fireRate: 0.3
   fireThrust: 20
 --- !u!1 &1904842021649579187
 GameObject:
