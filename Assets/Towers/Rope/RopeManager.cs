@@ -14,17 +14,21 @@ public class RopeManager : MonoBehaviour
     {   
         if (ropeTower.Tile.isLeft())
         {
+
             leftRopeTowers.Add(ropeTower); 
             leftSet = true;
         }
 
         if (ropeTower.Tile.isRight())
         {
+
             rightRopeTowers.Add(ropeTower);
             rightSet = true;
         }
+
         if (leftSet && rightSet)
         {
+
             CheckForConnection();
         }
     }
@@ -32,6 +36,7 @@ public class RopeManager : MonoBehaviour
     private void CheckForConnection()
     {
         string ropeName = leftRopeTowers.Last().Tile.name + "-" + rightRopeTowers.Last().Tile.name;
+
         foreach (Rope rope in ropes)
         {
             if (rope.name == ropeName)
