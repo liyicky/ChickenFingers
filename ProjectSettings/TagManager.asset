@@ -7,6 +7,7 @@ TagManager:
   - Left Tile
   - Right Tile
   - Rope
+  - Enemy
   layers:
   - Default
   - TransparentFX
